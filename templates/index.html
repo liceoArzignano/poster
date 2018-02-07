@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <title>Poster</title>
+    <link rel="stylesheet" media="screen" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="static/theme.min.css">
+    <link rel="stylesheet" href="static/mytheme.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header big-header">Sostituzioni</div>
+
+        <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+
+        {% for message in messages %}
+        {% if "Error" not in message[1]: %}
+        <div class="alert alert-info">
+            {{ message[1] }}
+        </div>
+        {% endif %}
+
+        {% if "Error" in message[1]: %}
+        <div class="alert alert-danger">
+            {{ message[1] }}
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <br>
+
+        <form method="post" role="form" action="/postit" class="main-div">
+            {{ form.csrf }}
+            <div class="form-group form-box">
+
+                <div class="row boxed-div">
+                    <h2>Autenticazione</h2>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="input-label">Email</label>
+                        <input class="form-control" type="email" id="email" name="email" placeholder="foo@bar.com">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="password" class="input-label">Password</label>
+                        <input class="form-control" type="password" id="password" name="password" placeholder="********">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row boxed-div">
+                    <h2>Programmazione</h2>
+
+                    <label for="target" class="input-label">Sostituito</label>
+                    <input class="form-control" type="text" id="target" name="target" placeholder="Mario Rossi">
+
+                    <label for="location" class="input-label">Classe</label>
+                    <input class="form-control" type="text" id="location" maxlength="3" name="location" placeholder="1A1">
+
+                    <label for="day" class="input-label">Giorno</label>
+                    <input class="form-control" type="date" id="day" name="day">
+
+                    <label for="hour" class="input-label">Ora</label>
+                    <input class="form-control" type="number" max="5" min="1" id="hour" name="hour" placeholder="1">
+
+                    <label for="replacer" class="input-label">Sostiuente</label>
+                    <input class="form-control" type="text" id="replacer" name="replacer" placeholder="Luigi Verdi">
+
+                    <label for="flags" class="input-label">Annotazioni</label>
+                    <input class="form-control" type="text" id="flags" name="flags" placeholder="RLQS">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary send-btn">Invia</button>
+        </form>
+    </div>
+</body>

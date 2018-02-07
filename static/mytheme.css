@@ -1,0 +1,79 @@
+.header {
+    background: #ffffff;
+    margin-top: 16px;
+}
+
+.form-box {
+    display: flow-root;
+}
+
+.content-div {
+    background-color: #f5f5f5;
+    padding: 16px;
+    padding-bottom: 32px;
+    border-color: #f5f5f5;
+    border-radius: 8px;
+    width: 80%;
+    display: inline-block;
+    float: left;
+}
+
+.boxed-div {
+    background-color: #fafafa;
+    padding-top: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 32px;
+    border-color: #fafafa;
+    border-radius: 8px;
+}
+
+.main-div {
+    padding-bottom: 96px;
+}
+.send-btn {
+    float: right;
+    width: auto;
+}
+
+.login-btn {
+    float: right;
+    width: 20%;
+    margin-top: 16px;
+}
+
+.input-label {
+    margin-top: 8px
+}
+
+.big-header {
+    font-size: 96px;
+}
+
+@media screen and (max-width: 480px) {
+    .login-btn {
+        float: right;
+        width: 40%;
+        margin-top: 16px;
+    }
+
+    .big-header {
+        font-size: 56px;
+    }
+
+    .message-div {
+        float: none;
+        width: 90%;
+        padding-left: 0px;
+    }
+
+    .main-div {
+        padding-bottom: 16px;
+    }
+}
+
+@media screen and (max-width: 200px) {
+    .big-header {
+        font-size: 36px;
+    }
+}
