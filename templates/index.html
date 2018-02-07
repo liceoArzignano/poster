@@ -34,7 +34,7 @@
         {% endwith %}
         <br>
 
-        <form method="post" role="form" action="/postit" class="main-div">
+        <form class="main-div" action="/postit" method="post" role="form">
             {{ form.csrf }}
             <div class="form-group form-box">
 
@@ -42,13 +42,13 @@
                     <h2>Autenticazione</h2>
 
                     <div class="col-md-6 mb-3">
-                        <label for="email" class="input-label">Email</label>
-                        <input class="form-control" type="email" id="email" name="email" placeholder="foo@bar.com">
+                        <label class="input-label" for="email">Email</label>
+                        <input class="form-control" id="email" name="email" placeholder="admin@liceoarzignano.it" type="email">
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="password" class="input-label">Password</label>
-                        <input class="form-control" type="password" id="password" name="password" placeholder="********">
+                        <label class="input-label" for="password">Password</label>
+                        <input class="form-control" id="password" name="password" placeholder="******" type="password">
                     </div>
                 </div>
 
@@ -57,27 +57,39 @@
                 <div class="row boxed-div">
                     <h2>Programmazione</h2>
 
-                    <label for="target" class="input-label">Sostituito</label>
-                    <input class="form-control" type="text" id="target" name="target" placeholder="Mario Rossi">
+                    <label class="input-label" for="target">Sostituito</label>
+                    <input class="form-control" autocomplete="off" id="target" name="target" placeholder="Mario Rossi" type="text">
 
-                    <label for="location" class="input-label">Classe</label>
-                    <input class="form-control" type="text" id="location" maxlength="3" name="location" placeholder="1A1">
+                    <label class="input-label" for="location">Classe</label>
+                    <input class="form-control" autocomplete="off" id="location" maxlength="3" name="location" placeholder="1A1" type="text">
 
-                    <label for="day" class="input-label">Giorno</label>
-                    <input class="form-control" type="date" id="day" name="day">
+                    <label class="input-label" for="day">Giorno</label>
+                    <input class="form-control" id="day" name="day" type="date">
 
                     <label for="hour" class="input-label">Ora</label>
-                    <input class="form-control" type="number" max="5" min="1" id="hour" name="hour" placeholder="1">
+                    <select class="form-control" autocomplete="off" id="hour" name="hour">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
 
                     <label for="replacer" class="input-label">Sostiuente</label>
-                    <input class="form-control" type="text" id="replacer" name="replacer" placeholder="Luigi Verdi">
+                    <input class="form-control" autocomplete="off" id="replacer" name="replacer" placeholder="Luigi Verdi" type="text">
 
                     <label for="flags" class="input-label">Annotazioni</label>
-                    <input class="form-control" type="text" id="flags" name="flags" placeholder="RLQS">
+                    <select class="form-control" autocomplete="off" id="flags" name="flags">
+                        <option>Q: Quotidiano in classe</option>
+                        <option>L: Lezione</option>
+                        <option>O: Orario di servizio</option>
+                        <option>R: Banca ore</option>
+                        <option>A: Attesa conferma</option>
+                    </select>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary send-btn">Invia</button>
+            <button class="btn btn-primary send-btn" type="submit">Invia</button>
         </form>
     </div>
 </body>

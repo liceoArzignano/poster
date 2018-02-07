@@ -1,5 +1,5 @@
 from flask import Flask, render_template, flash, request
-from wtforms import Form, validators, StringField, PasswordField, IntegerField, DateField
+from wtforms import Form, validators, StringField, PasswordField, DateField, SelectField
 
 import firebase
 
@@ -21,9 +21,9 @@ class PosterForm(Form):
     target = StringField("Sostituto:", validators=[validators.required()])
     location = StringField("Classe:", validators=[validators.required(), validators.regexp("[1-5][a-f][1-5]?")])
     day = DateField("Giorno:", validators=[validators.required()])
-    hour = IntegerField("Ora:", validators=[validators.required(), validators.regexp("[1-5]")])
+    hour = SelectField("Ora:")
     replacer = StringField("Sostituente:", validators=[validators.required()])
-    flags = StringField("Annotazioni:", validators=[validators.regexp("[QLSRAUqlsrau]+")])
+    flags = SelectField("Annotazioni:")
 
 
 DEBUG = True
@@ -42,7 +42,7 @@ def post():
             request.form["day"],
             request.form["hour"],
             request.form["replacer"],
-            request.form["flags"]
+            request.form["flags"].split(":")[0]
         )
 
         firebase.database_push(replacement)
